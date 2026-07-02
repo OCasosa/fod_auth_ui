@@ -16,12 +16,17 @@ class FodAuthUiLoader extends AssetLoader {
 
   static const Map<String, dynamic> _en = {
     "cancel": "cancel",
+    "communicationCodeEnter":
+        "Enter the code sent to the following communication channel:",
     "communicationProviderHelperText":
         "A verification code will be sent to the selected delivery method",
     "communicationProviderSelect": "select delivery method",
+    "communicationProviderVerification": "{channel} verification",
+    "customerServiceContact": "Contact customer service",
     "greetingTitle": "Hello!",
     "loading": "loading",
     "loginRecent": "last login",
+    "logoutConfirmQuestion": "Do you want to log out?",
     "otpEnter": "Verify it's you",
     "otpInput": "Type it here to verify your identity",
     "otpSendBody": "We sent a code to",
@@ -35,10 +40,23 @@ class FodAuthUiLoader extends AssetLoader {
     "passwordRuleNumber": "1 number",
     "passwordRuleSpecialChar": "1 special character",
     "passwordRuleUppercase": "1 uppercase letter",
+    "passwordSecurityUpdate":
+        "For security reasons it is necessary that you update your password.",
+    "passwordUpdate": "update password",
+    "passwordUse": "Use password",
+    "permanently": "permanently",
+    "returnToLogin": "log back in",
     "search": "search",
     "send": "send",
+    "sessionLogout": "log out",
     "signInSession": "Sign in",
     "signInText": "Sign in to your account",
+    "temporaly": "temporarily",
+    "tryAgainIn": "Please try again in",
+    "userLockMessage":
+        "Dear customer, your account has been locked {time} due to invalid login attempts",
+    "userTemporalLockWarningMessage":
+        "If you try to log in with incorrect credentials once again, your account will be permanently locked",
     "welcomeTitle": "Welcome back!"
   };
   static const Map<String, dynamic> _es = {
@@ -53,6 +71,7 @@ class FodAuthUiLoader extends AssetLoader {
     "greetingTitle": "Hola!",
     "loading": "cargando",
     "loginRecent": "último inicio de sesión",
+    "logoutConfirmQuestion": "¿Deseas cerrar sesión?",
     "otpEnter": "Verifica que eres tú",
     "otpInput": "Escríbelo aquí para verificar tu identidad",
     "otpSendBody": "Mandamos un código a",
@@ -74,6 +93,7 @@ class FodAuthUiLoader extends AssetLoader {
     "returnToLogin": "volver a iniciar sesión",
     "search": "buscar",
     "send": "enviar",
+    "sessionLogout": "cerrar sesión",
     "signInSession": "Iniciar sesión",
     "signInText": "Inicia sesión en tu cuenta",
     "temporaly": "temporalmente",

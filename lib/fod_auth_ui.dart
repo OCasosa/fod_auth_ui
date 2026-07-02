@@ -74,4 +74,70 @@ class FodAuthUi {
       );
     }
   }
+
+  /// redirects to the login page of the application
+  ///
+  /// askUserForConfirmation = true: Shows a confirmation dialog before logging out
+  /// askUserForConfirmation = false: Logs out the user immediately
+  static Future<void> logout(
+    BuildContext context, {
+    required bool askUserForConfirmation,
+  }) async {
+    DialogResult shouldLogout = DialogResult.ok;
+    if (askUserForConfirmation) {
+      shouldLogout = await showConfirmationDialog(
+        context: context,
+        texts: ConfirmationDialogTexts(
+          title: "sessionLogout".tr().tr().toCapitalized(),
+          message: "logoutConfirmQuestion".tr(),
+        ),
+        options: const ConfirmationDialogOptions(
+          type: DialogType.info,
+        ),
+      );
+    }
+
+    if (shouldLogout != DialogResult.ok || !context.mounted) return;
+
+    final logoutResponse = await AuthController.logout(
+      context: context,
+    );
+
+    if (!context.mounted) return;
+
+    switch (logoutResponse) {
+      case AuthStep.inputUser:
+        unawaited(
+          context.router.replaceAll(
+            [
+              const UsernameInputRoute(),
+            ],
+          ),
+        );
+      case AuthStep.inputPassword:
+        unawaited(
+          context.router.replaceAll(
+            [
+              const PasswordInputRoute(),
+            ],
+          ),
+        );
+      case AuthStep.inputBiometric:
+        unawaited(
+          context.router.replaceAll(
+            [
+              BiometricInputRoute(),
+            ],
+          ),
+        );
+      case null:
+        unawaited(
+          context.router.replaceAll(
+            [
+              const PasswordInputRoute(),
+            ],
+          ),
+        );
+    }
+  }
 }
