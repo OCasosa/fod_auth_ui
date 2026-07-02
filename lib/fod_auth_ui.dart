@@ -5,7 +5,6 @@ import "dart:async";
 import "package:auto_route/auto_route.dart";
 import "package:easy_localization/easy_localization.dart";
 import "package:flutter/material.dart";
-import "package:flutter_common_classes/constants/classes/params.dart";
 import "package:flutter_common_classes/flutter_common_classes.dart";
 import "package:fod_auth_flutter/features/fod_features.dart";
 import "package:get_it/get_it.dart";
