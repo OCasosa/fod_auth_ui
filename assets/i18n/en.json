@@ -3,6 +3,8 @@
   "communicationProviderHelperText": "A verification code will be sent to the selected delivery method",
   "communicationProviderSelect": "select delivery method",
   "greetingTitle": "Hello!",
+  "loading": "loading",
+  "loginRecent": "last login",
   "otpEnter": "Verify it's you",
   "otpInput": "Type it here to verify your identity",
   "otpSendBody": "We sent a code to",

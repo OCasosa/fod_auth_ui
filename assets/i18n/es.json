@@ -6,6 +6,8 @@
   "communicationProviderVerification": "Verificación de {channel}",
   "customerServiceContact": "Comuníquese con el área de atención al cliente",
   "greetingTitle": "Hola!",
+  "loading": "cargando",
+  "loginRecent": "último inicio de sesión",
   "otpEnter": "Verifica que eres tú",
   "otpInput": "Escríbelo aquí para verificar tu identidad",
   "otpSendBody": "Mandamos un código a",
