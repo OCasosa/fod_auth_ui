@@ -19,25 +19,31 @@ class FodAuthUi {
   /// If no username save in cache, redirects to the username input page
   /// If user saved but no biometrics enrolled, goes to password input page
   /// If username and bioemtrics enrolled, goes to biometrics page
+  ///
+  /// step: If provided, redirects to the given step
   static Future<void> goToAuth({
     required BuildContext context,
+    AuthStep? step,
   }) async {
-    final authStepResponse = await GetUserAuthenticationPage(
-      repository: GetIt.I.get<IdentityRepository>(),
-      biometricRepository: GetIt.I.get<BiometricRepository>(),
-      sessionRepository: GetIt.I.get<SessionRepository>(),
-    ).call(
-      params: const NoParams(),
-    );
+    AuthStep authStep = AuthStep.inputUser;
+    if (step != null) {
+      authStep = step;
+    } else {
+      final authStepResponse = await GetUserAuthenticationPage(
+        repository: GetIt.I.get<IdentityRepository>(),
+        biometricRepository: GetIt.I.get<BiometricRepository>(),
+        sessionRepository: GetIt.I.get<SessionRepository>(),
+      ).call(
+        params: const NoParams(),
+      );
 
-    if (!context.mounted) return;
+      if (!context.mounted) return;
 
-    late AuthStep authStep;
-
-    authStepResponse.fold(
-      (l) => authStep = AuthStep.inputUser,
-      (r) => authStep = r,
-    );
+      authStepResponse.fold(
+        (l) => authStep = AuthStep.inputUser,
+        (r) => authStep = r,
+      );
+    }
 
     switch (authStep) {
       case AuthStep.inputUser:
