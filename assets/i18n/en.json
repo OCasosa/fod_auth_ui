@@ -1,0 +1,23 @@
+{
+  "cancel": "cancel",
+  "communicationProviderHelperText": "A verification code will be sent to the selected delivery method",
+  "communicationProviderSelect": "select delivery method",
+  "greetingTitle": "Hello!",
+  "otpEnter": "Verify it's you",
+  "otpInput": "Type it here to verify your identity",
+  "otpSendBody": "We sent a code to",
+  "pageHomeLoadFailed": "Failed to load home page",
+  "passwordChangeFillFormText": "fill out the following form to change your password",
+  "passwordConfirm": "confirm password",
+  "passwordForgot": "forgot my password",
+  "passwordNew": "new password",
+  "passwordRuleLength": "6 characters",
+  "passwordRuleNumber": "1 number",
+  "passwordRuleSpecialChar": "1 special character",
+  "passwordRuleUppercase": "1 uppercase letter",
+  "search": "search",
+  "send": "send",
+  "signInSession": "Sign in",
+  "signInText": "Sign in to your account",
+  "welcomeTitle": "Welcome back!"
+}
