@@ -12,6 +12,9 @@ import "package:get_it/get_it.dart";
 import "core/routes/fod_auth_ui_router.gr.dart";
 import "features/branding/business/entities/branding_props_entity.dart";
 
+export "core/generated/fod_auth_ui_loader.gen.dart";
+export "core/routes/fod_auth_ui_router.gr.dart";
+
 /// Initial class for activating the fod auth ui flow
 class FodAuthUi {
   /// Goes to the corresponding login page
