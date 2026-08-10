@@ -10,33 +10,22 @@ class BiometricInputPage extends StatelessWidget {
   /// This page is only accessible after the user has input their username.
   const BiometricInputPage({
     super.key,
-    this.pageInfo,
     this.shouldShowBiometricDialog = false,
   });
-
-  /// The information of the user to be authenticated.
-  ///
-  /// If this is null, then the information will be fetched from the server.
-  final AuthPasswordPageInfoEntity? pageInfo;
 
   /// True if the biometric sensor should be automatically shown.
   final bool shouldShowBiometricDialog;
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: pageInfo != null
-            ? _SuccessContent(
-                pageInfo: pageInfo!,
-                shouldShowBiometricDialog: shouldShowBiometricDialog,
-              )
-            : BlocProvider(
-                create: (context) => AuthInfoStateCubit(),
-                child: Scaffold(
-                  body: _BiometricInputContent(
-                    shouldShowBiometricDialog: shouldShowBiometricDialog,
-                  ),
-                ),
-              ),
+        body: BlocProvider(
+          create: (context) => AuthInfoStateCubit(),
+          child: Scaffold(
+            body: _BiometricInputContent(
+              shouldShowBiometricDialog: shouldShowBiometricDialog,
+            ),
+          ),
+        ),
       );
 }
 
@@ -119,58 +108,106 @@ class _BiometricLoginContentState extends State<_BiometricLoginContent> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      elevation: 5,
-                      backgroundColor: context.colorScheme.secondaryContainer,
-                      foregroundColor: context.colorScheme.onSecondaryContainer,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 25,
-                        horizontal: 10,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
-                    onPressed: () => _onFormSubmitted(context),
-                    child: Icon(
-                      Platform.isIOS
-                          ? FontAwesomeIcons.faceViewfinder
-                          : FontAwesomeIcons.solidFingerprint,
-                      size: 64,
+  Widget build(BuildContext context) => Stack(
+        children: [
+          const Align(
+            alignment: Alignment.topCenter,
+            child: SignInBackground(),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: FormSection(
+              content: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "welcomeTitle".tr(),
+                              style: context.textTheme.headlineSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          widget.user,
+                          style: context.textTheme.bodyLarge?.copyWith(
+                            color: context.colorScheme.outline,
+                          ),
+                        ),
+                        AppSeparators.kVSeparatorSmall,
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            widget.initials,
+                            style: context.textTheme.headlineSmall?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
+                  Expanded(
+                    flex: 1,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          children: [
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                elevation: 5,
+                                backgroundColor:
+                                    context.colorScheme.secondaryContainer,
+                                foregroundColor:
+                                    context.colorScheme.onSecondaryContainer,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 25,
+                                  horizontal: 10,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                              ),
+                              onPressed: () => _onFormSubmitted(context),
+                              child: Icon(
+                                Platform.isIOS
+                                    ? FontAwesomeIcons.faceViewfinder
+                                    : FontAwesomeIcons.solidFingerprint,
+                                size: 64,
+                              ),
+                            ),
+                            const Spacer(),
+                            TextButton(
+                              onPressed: () => widget.moveToPasswordInput(),
+                              child: Text(
+                                "passwordUse".tr(),
+                                style: context.textTheme.titleMedium?.copyWith(
+                                  color: context.colorScheme.primary,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            TextButton(
-              onPressed: widget.moveToPasswordInput,
-              child: Text("passwordUse".tr()),
-            ),
-          ],
-        ),
+          ),
+        ],
       );
-
-  Future _unregisterUser(BuildContext context) async {
-    final success = await IdentityController.deleteUsername(
-      context: context,
-    );
-
-    if (!context.mounted || !success) return;
-
-    unawaited(
-      context.router.replace(
-        const UsernameInputRoute(),
-      ),
-    );
-  }
 
   Future _onFormSubmitted(BuildContext context) async {
     final loginEntity = await AuthController.login(
@@ -183,6 +220,37 @@ class _BiometricLoginContentState extends State<_BiometricLoginContent> {
 
     if (!context.mounted || loginEntity == null) return;
 
-    //loginEntity.moveToCorrespondingStep(context);
+    if (loginEntity.trustedUser) {
+      final token = await TokenController.obtainToken(
+        context: context,
+        isOTPValidation: false,
+      );
+
+      if (!context.mounted || token == null) return;
+
+      if (token.data?.onboarding.isAuthorized ?? true) {
+        unawaited(FodAuthUi.goToHome(context));
+
+        return;
+      } else {
+        FodOnboarding.init(
+          context: context,
+          data: const OnboardingDataEntity(
+            returnPage: PasswordInputRoute(),
+          ),
+          onboardingStatus: token.data?.onboarding.status ?? 0,
+        );
+      }
+
+      return;
+    }
+
+    unawaited(
+      context.router.replace(
+        TwoFactorInputRoute(
+          recipient: loginEntity.receiver ?? "",
+        ),
+      ),
+    );
   }
 }

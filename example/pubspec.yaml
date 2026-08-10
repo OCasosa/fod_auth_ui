@@ -1,0 +1,102 @@
+name: one_wallet_business
+description: "A new Flutter project."
+publish_to: "none"
+version: 2.0.14+23
+
+environment:
+  sdk: ">=3.2.3 <4.0.0"
+
+dependencies:
+  auto_route: ^10.2.3
+  circular_countdown_timer: ^0.2.4
+  collection: ^1.19.0
+  confirm_alert: ^0.0.5
+  device_preview_minus: ^1.4.0
+  dio: ^5.9.0
+  easy_localization: ^3.0.8
+  equatable: ^2.0.7
+  faker: ^2.2.0
+  flex_color_scheme: ^8.3.1
+  flutter:
+    sdk: flutter
+  flutter_animate: ^4.5.2
+  flutter_bloc: ^9.1.0
+  flutter_common_classes:
+    git:
+      url: https://github.com/alexsosat/flutter_common_classes.git
+      ref: 1.1.3
+  flutter_flavor: ^3.1.3
+  flutter_flip_card: ^0.0.6
+  flutter_form_builder: ^10.2.0
+  flutter_local_notifications: ^19.5.0
+  flutter_localizations:
+    sdk: flutter
+  flutter_pdfview: ^1.4.3
+  flutter_pretty_dio_logger: ^3.0.0
+  flutter_secure_storage: ^9.2.4
+  flutter_timezone: ^5.0.1
+  fod_auth_ui:
+    path: ../
+  font_awesome_flutter:
+    git:
+      url: https://onecarddev@dev.azure.com/onecarddev/Font_Awesome_Flutter/_git/Font_Awesome_Flutter
+      ref: 10.8.0
+  form_builder_dropdown_search:
+    git:
+      url: https://github.com/alexsosat/form_builder_dropdown_search.git
+      ref: 0.1.4
+  form_builder_validators: ^11.1.2
+  form_builder_z:
+    git:
+      url: https://github.com/alexsosat/form_builder_z.git
+      ref: 0.0.9
+  fpdart: ^1.1.0
+  geolocator: ^14.0.2
+  get_it: ^8.3.0
+  internet_connection_checker_plus: ^2.9.1
+  intl: any
+  loader_overlay: ^5.0.0
+  logger: ^2.5.0
+  lottie: ^3.3.2
+  new_version_plus: ^0.1.1
+  open_file: ^3.5.10
+  package_info_plus: ^8.3.1
+  path_provider: ^2.1.5
+  pinput: ^5.0.2
+  shared_preferences: ^2.5.2
+  shimmer: ^3.0.0
+  smart_auth: ^3.2.0
+  smooth_page_indicator: ^1.2.1
+  svg_flag: ^1.5.1
+  timezone: ^0.10.0
+  toastification: ^3.0.3
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  auto_route_generator: ^10.2.6
+  build_runner: ^2.10.4
+  flutter_gen_runner: ^5.12.0
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter_gen:
+  output: lib/core/gen
+  line_length: 80 # Optional (default: 80)
+
+  # Optional
+  integrations:
+    image: true
+    flutter_svg: true
+    rive: false
+    lottie: true
+
+flutter:
+  uses-material-design: true
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/logos/issuer/
+    - assets/images/logos/
+    - assets/images/backgrounds/
+    - assets/images/pixels_market/
+    - assets/i18n/

@@ -54,7 +54,7 @@ class _UserLoginInputFormState extends State<_UserLoginInputForm> {
               ),
               onPressed: _onFormSubmitted,
               child: Text(
-                "sign_in_button".tr(),
+                "next".tr().toCapitalized(),
                 style: context.textTheme.titleMedium?.copyWith(
                   color: context.colorScheme.onPrimary,
                 ),

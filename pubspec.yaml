@@ -1,7 +1,7 @@
 name: fod_auth_ui
 description: "A new Flutter project."
 publish_to: "none"
-version: 0.1.0
+version: 0.2.0
 
 environment:
   sdk: ">=3.2.3 <4.0.0"
@@ -14,7 +14,7 @@ dependencies:
   fintech_on_demand_onboarding_flutter:
     git:
       url: https://github.com/OCasosa/fintech_on_demand_onboarding_flutter.git
-      ref: 0.1.41
+      ref: 0.1.42
   flutter:
     sdk: flutter
   flutter_common_classes:
@@ -27,7 +27,7 @@ dependencies:
   fod_auth_flutter:
     git:
       url: https://github.com/OCasosa/fod_auth_flutter.git
-      ref: 0.1.16
+      ref: 0.1.17
   font_awesome_flutter:
     git:
       url: https://onecarddev@dev.azure.com/onecarddev/Font_Awesome_Flutter/_git/Font_Awesome_Flutter

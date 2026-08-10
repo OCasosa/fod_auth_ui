@@ -15,6 +15,10 @@ class FodAuthUiLoader extends AssetLoader {
   }
 
   static const Map<String, dynamic> _en = {
+    "activate": "activate",
+    "biometricAuthActivate": "Activate biometric authentication",
+    "biometricWarningText":
+        "If you have activated biometric authentication on your device and granted access to another person, they will be able to enter the application",
     "cancel": "cancel",
     "communicationCodeEnter":
         "Enter the code sent to the following communication channel:",
@@ -23,10 +27,13 @@ class FodAuthUiLoader extends AssetLoader {
     "communicationProviderSelect": "select delivery method",
     "communicationProviderVerification": "{channel} verification",
     "customerServiceContact": "Contact customer service",
+    "email": "Email",
     "greetingTitle": "Hello!",
     "loading": "loading",
     "loginRecent": "last login",
     "logoutConfirmQuestion": "Do you want to log out?",
+    "next": "next",
+    "note": "Note",
     "otpEnter": "Verify it's you",
     "otpInput": "Type it here to verify your identity",
     "otpSendBody": "We sent a code to",
@@ -34,6 +41,7 @@ class FodAuthUiLoader extends AssetLoader {
     "passwordChangeFillFormText":
         "fill out the following form to change your password",
     "passwordConfirm": "confirm password",
+    "passwordEnter": "Enter your password",
     "passwordForgot": "forgot my password",
     "passwordNew": "new password",
     "passwordRuleLength": "6 characters",
@@ -57,9 +65,18 @@ class FodAuthUiLoader extends AssetLoader {
         "Dear customer, your account has been locked {time} due to invalid login attempts",
     "userTemporalLockWarningMessage":
         "If you try to log in with incorrect credentials once again, your account will be permanently locked",
+    "warning": "Warning",
     "welcomeTitle": "Welcome back!"
   };
   static const Map<String, dynamic> _es = {
+    "activate": "activar",
+    "biometricAuthActivate": "Activar autenticación biométrica",
+    "biometricDeregisterMessage":
+        "Al hacerlo tendrás que ingresar tu contraseña para operaciones de autenticación",
+    "biometricDeregisterTitle":
+        "¿Deseas deshabilitar la autenticación biométrica?",
+    "biometricWarningText":
+        "Si activaste la autenticación biométrica en tu dispositivo y otorgaste acceso a otra persona, esta podrá ingresar a la aplicación",
     "cancel": "cancelar",
     "communicationCodeEnter":
         "Ingresa el código enviado al siguiente canal de comunicación:",
@@ -68,10 +85,13 @@ class FodAuthUiLoader extends AssetLoader {
     "communicationProviderSelect": "seleccionar método de envío",
     "communicationProviderVerification": "Verificación de {channel}",
     "customerServiceContact": "Comuníquese con el área de atención al cliente",
+    "email": "Correo",
     "greetingTitle": "Hola!",
     "loading": "cargando",
     "loginRecent": "último inicio de sesión",
     "logoutConfirmQuestion": "¿Deseas cerrar sesión?",
+    "next": "siguiente",
+    "note": "Nota",
     "otpEnter": "Verifica que eres tú",
     "otpInput": "Escríbelo aquí para verificar tu identidad",
     "otpSendBody": "Mandamos un código a",
@@ -79,6 +99,7 @@ class FodAuthUiLoader extends AssetLoader {
     "passwordChangeFillFormText":
         "llena el siguiente formulario para cambiar tu contraseña",
     "passwordConfirm": "confirmar contraseña",
+    "passwordEnter": "Ingresa tu contraseña",
     "passwordForgot": "olvidé mi contraseña",
     "passwordNew": "nueva contraseña",
     "passwordRuleLength": "6 caracteres",
@@ -102,6 +123,7 @@ class FodAuthUiLoader extends AssetLoader {
         "Estimado(@) cliente, su cuenta ha sido bloqueada {time} debido a intentos de inicios de sesión no válidos",
     "userTemporalLockWarningMessage":
         "Si intenta iniciar sesión con credenciales incorrectas una vez más, su cuenta se bloqueará permanentemente",
+    "warning": "Advertencia",
     "welcomeTitle": "Bienvenido de vuelta!"
   };
   static const Map<String, Map<String, dynamic>> mapLocales = {

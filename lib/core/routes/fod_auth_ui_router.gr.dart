@@ -11,9 +11,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i8;
 import 'package:flutter/material.dart' as _i10;
-import 'package:fod_auth_flutter/features/auth/business/entities/auth_password_page_info_entity.dart'
-    as _i11;
-import 'package:fod_auth_flutter/features/fod_features.dart' as _i12;
+import 'package:fod_auth_flutter/features/fod_features.dart' as _i11;
 import 'package:fod_auth_flutter/features/security/business/entities/account_lockout_data_entity.dart'
     as _i9;
 import 'package:fod_auth_ui/features/account/presentation/libraries/account_lock_page_library.dart'
@@ -83,14 +81,12 @@ class AccountLockRouteArgs {
 class BiometricInputRoute extends _i8.PageRouteInfo<BiometricInputRouteArgs> {
   BiometricInputRoute({
     _i10.Key? key,
-    _i11.AuthPasswordPageInfoEntity? pageInfo,
     bool shouldShowBiometricDialog = false,
     List<_i8.PageRouteInfo>? children,
   }) : super(
           BiometricInputRoute.name,
           args: BiometricInputRouteArgs(
             key: key,
-            pageInfo: pageInfo,
             shouldShowBiometricDialog: shouldShowBiometricDialog,
           ),
           initialChildren: children,
@@ -106,7 +102,6 @@ class BiometricInputRoute extends _i8.PageRouteInfo<BiometricInputRouteArgs> {
       );
       return _i2.BiometricInputPage(
         key: args.key,
-        pageInfo: args.pageInfo,
         shouldShowBiometricDialog: args.shouldShowBiometricDialog,
       );
     },
@@ -116,19 +111,16 @@ class BiometricInputRoute extends _i8.PageRouteInfo<BiometricInputRouteArgs> {
 class BiometricInputRouteArgs {
   const BiometricInputRouteArgs({
     this.key,
-    this.pageInfo,
     this.shouldShowBiometricDialog = false,
   });
 
   final _i10.Key? key;
 
-  final _i11.AuthPasswordPageInfoEntity? pageInfo;
-
   final bool shouldShowBiometricDialog;
 
   @override
   String toString() {
-    return 'BiometricInputRouteArgs{key: $key, pageInfo: $pageInfo, shouldShowBiometricDialog: $shouldShowBiometricDialog}';
+    return 'BiometricInputRouteArgs{key: $key, shouldShowBiometricDialog: $shouldShowBiometricDialog}';
   }
 
   @override
@@ -136,13 +128,11 @@ class BiometricInputRouteArgs {
     if (identical(this, other)) return true;
     if (other is! BiometricInputRouteArgs) return false;
     return key == other.key &&
-        pageInfo == other.pageInfo &&
         shouldShowBiometricDialog == other.shouldShowBiometricDialog;
   }
 
   @override
-  int get hashCode =>
-      key.hashCode ^ pageInfo.hashCode ^ shouldShowBiometricDialog.hashCode;
+  int get hashCode => key.hashCode ^ shouldShowBiometricDialog.hashCode;
 }
 
 /// generated route for
@@ -150,7 +140,7 @@ class BiometricInputRouteArgs {
 class CommunicationChannelVerificationRoute
     extends _i8.PageRouteInfo<CommunicationChannelVerificationRouteArgs> {
   CommunicationChannelVerificationRoute({
-    required _i12.CommunicationChannelsEnum channel,
+    required _i11.CommunicationChannelsEnum channel,
     _i10.Key? key,
     List<_i8.PageRouteInfo>? children,
   }) : super(
@@ -182,7 +172,7 @@ class CommunicationChannelVerificationRouteArgs {
     this.key,
   });
 
-  final _i12.CommunicationChannelsEnum channel;
+  final _i11.CommunicationChannelsEnum channel;
 
   final _i10.Key? key;
 
