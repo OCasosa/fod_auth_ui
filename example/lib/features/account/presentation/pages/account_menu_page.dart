@@ -46,6 +46,17 @@ class AccountMenuPage extends StatelessWidget {
 class _AccountMenuContent extends StatelessWidget {
   const _AccountMenuContent();
 
+  bool get _getBiometricValue => GetBiometricEnrollment(
+        repository: GetIt.I.get(),
+      )
+          .call(
+            params: const NoParams(),
+          )
+          .fold(
+            (l) => false,
+            (r) => r,
+          );
+
   @override
   Widget build(BuildContext context) => RefreshIndicator.adaptive(
         onRefresh: () => _onRefresh(context),
@@ -81,7 +92,7 @@ class _AccountMenuContent extends StatelessWidget {
               title: "biometricRegistration".tr().toCapitalized(),
               iconData: FontAwesomeIcons.fingerprint,
               iconColor: const Color(0xFFAB92F0),
-              initialValue: false,
+              initialValue: _getBiometricValue,
               onChanged: (value) => _onBiometricSelected(context, value),
             ),
             // _AccountListTile(

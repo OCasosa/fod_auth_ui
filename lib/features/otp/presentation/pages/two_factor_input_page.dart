@@ -132,6 +132,48 @@ class _SuccessTwoFactorInputContent extends StatelessWidget {
     if (!context.mounted || token == null) return;
 
     if (token.data?.onboarding.isAuthorized ?? true) {
+      final biometricsRepository = GetIt.I.get<BiometricRepository>();
+
+      final biometricsEnrolledResponse = GetBiometricEnrollment(
+        repository: biometricsRepository,
+      ).call(params: const NoParams());
+
+      final biometricsEnrolled = biometricsEnrolledResponse.fold(
+        (l) => false,
+        (r) => r,
+      );
+
+      if (!biometricsEnrolled) {
+        final promptFlagResponse =
+            GetBiometricPromptFlag(repository: biometricsRepository).call(
+          params: NoParams(),
+        );
+
+        final promptFlag = promptFlagResponse.fold(
+          (l) => true,
+          (r) => r,
+        );
+
+        if (!promptFlag) {
+          await showBiometricsOverlay(
+            context: context,
+            toggle: true,
+            retrievePasswordFromSession: true,
+          );
+        }
+      }
+
+      final biometricAvailableResponse = await GetBiometricAvailability(
+        repository: biometricsRepository,
+      ).call(
+        params: const NoParams(),
+      );
+
+      final biometricsAvailable = biometricAvailableResponse.fold(
+        (l) => false,
+        (r) => r,
+      );
+
       unawaited(FodAuthUi.goToHome(context));
     } else {
       FodOnboarding.init(

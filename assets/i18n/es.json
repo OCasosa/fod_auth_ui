@@ -9,6 +9,7 @@
   "communicationProviderHelperText": "Se enviará un código de verificación al método de envío seleccionado",
   "communicationProviderSelect": "seleccionar método de envío",
   "communicationProviderVerification": "Verificación de {channel}",
+  "confirm": "confirmar",
   "customerServiceContact": "Comuníquese con el área de atención al cliente",
   "email": "Correo",
   "greetingTitle": "Hola!",

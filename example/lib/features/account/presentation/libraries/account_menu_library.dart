@@ -6,11 +6,13 @@ import "package:fintech_on_demand_onboarding_flutter/features/general/business/e
 import "package:flutter/material.dart";
 import "package:flutter_common_classes/flutter_common_classes.dart";
 import "package:fod_auth_flutter/features/auth/presentation/cubits/last_login_load_cubit.dart";
+import "package:fod_auth_flutter/features/biometrics/business/use_cases/get_biometric_enrollment.dart";
 import "package:fod_auth_ui/features/account/presentation/widgets/last_login_text.dart";
 import "package:fod_auth_ui/features/biometrics/presentation/forms/register_biometrics_form.dart";
 import "package:fod_auth_ui/features/biometrics/presentation/widgets/overlays/biometrics_register_bottomsheet.dart";
 import "package:fod_auth_ui/fod_auth_ui.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
+import "package:get_it/get_it.dart";
 
 import "../../../../core/constants/theme/app_separators.dart";
 import "../../../../core/routes/app_router.gr.dart";
