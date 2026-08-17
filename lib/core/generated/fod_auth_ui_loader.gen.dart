@@ -17,6 +17,10 @@ class FodAuthUiLoader extends AssetLoader {
   static const Map<String, dynamic> _en = {
     "activate": "activate",
     "biometricAuthActivate": "Activate biometric authentication",
+    "biometricDeregisterMessage":
+        "When doing so you will have to enter your password for authentication operations",
+    "biometricDeregisterTitle":
+        "Do you want to disable biometric authentication?",
     "biometricWarningText":
         "If you have activated biometric authentication on your device and granted access to another person, they will be able to enter the application",
     "cancel": "cancel",
@@ -26,6 +30,7 @@ class FodAuthUiLoader extends AssetLoader {
         "A verification code will be sent to the selected delivery method",
     "communicationProviderSelect": "select delivery method",
     "communicationProviderVerification": "{channel} verification",
+    "confirm": "confirm",
     "customerServiceContact": "Contact customer service",
     "email": "Email",
     "greetingTitle": "Hello!",
@@ -84,6 +89,7 @@ class FodAuthUiLoader extends AssetLoader {
         "Se enviará un código de verificación al método de envío seleccionado",
     "communicationProviderSelect": "seleccionar método de envío",
     "communicationProviderVerification": "Verificación de {channel}",
+    "confirm": "confirmar",
     "customerServiceContact": "Comuníquese con el área de atención al cliente",
     "email": "Correo",
     "greetingTitle": "Hola!",

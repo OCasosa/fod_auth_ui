@@ -123,6 +123,8 @@ class _SuccessTwoFactorInputContent extends StatelessWidget {
       );
 
   Future _onFormSubmit(BuildContext context, OtpFormEntity form) async {
+    await _promptBiometrics(context);
+    if (!context.mounted) return;
     final token = await TokenController.obtainToken(
       context: context,
       otpForm: form,
@@ -132,48 +134,6 @@ class _SuccessTwoFactorInputContent extends StatelessWidget {
     if (!context.mounted || token == null) return;
 
     if (token.data?.onboarding.isAuthorized ?? true) {
-      final biometricsRepository = GetIt.I.get<BiometricRepository>();
-
-      final biometricsEnrolledResponse = GetBiometricEnrollment(
-        repository: biometricsRepository,
-      ).call(params: const NoParams());
-
-      final biometricsEnrolled = biometricsEnrolledResponse.fold(
-        (l) => false,
-        (r) => r,
-      );
-
-      if (!biometricsEnrolled) {
-        final promptFlagResponse =
-            GetBiometricPromptFlag(repository: biometricsRepository).call(
-          params: NoParams(),
-        );
-
-        final promptFlag = promptFlagResponse.fold(
-          (l) => true,
-          (r) => r,
-        );
-
-        if (!promptFlag) {
-          await showBiometricsOverlay(
-            context: context,
-            toggle: true,
-            retrievePasswordFromSession: true,
-          );
-        }
-      }
-
-      final biometricAvailableResponse = await GetBiometricAvailability(
-        repository: biometricsRepository,
-      ).call(
-        params: const NoParams(),
-      );
-
-      final biometricsAvailable = biometricAvailableResponse.fold(
-        (l) => false,
-        (r) => r,
-      );
-
       unawaited(FodAuthUi.goToHome(context));
     } else {
       FodOnboarding.init(
@@ -205,5 +165,51 @@ class _SuccessTwoFactorInputContent extends StatelessWidget {
     if (newProvider == null || !context.mounted) return;
 
     context.read<SendOTPStateCubit>().setValueAndRefresh(newProvider);
+  }
+
+  Future<void> _promptBiometrics(BuildContext context) async {
+    final biometricsRepository = GetIt.I.get<BiometricRepository>();
+
+    final biometricsEnrolledResponse = GetBiometricEnrollment(
+      repository: biometricsRepository,
+    ).call(params: const NoParams());
+
+    final biometricsEnrolled = biometricsEnrolledResponse.fold(
+      (l) => false,
+      (r) => r,
+    );
+
+    if (biometricsEnrolled) return;
+
+    final promptFlagResponse =
+        GetBiometricPromptFlag(repository: biometricsRepository).call(
+      params: const NoParams(),
+    );
+
+    final flagPrompted = promptFlagResponse.fold(
+      (l) => true,
+      (r) => r,
+    );
+
+    if (flagPrompted) return;
+
+    final biometricAvailableResponse = await GetBiometricsAvailable(
+      repository: biometricsRepository,
+    ).call(
+      params: const NoParams(),
+    );
+
+    final biometricsAvailable = biometricAvailableResponse.fold(
+      (l) => [],
+      (r) => r,
+    );
+
+    if (!context.mounted || biometricsAvailable.isEmpty) return;
+
+    await showBiometricsOverlay(
+      context: context,
+      toggle: true,
+      retrievePasswordFromSession: true,
+    );
   }
 }

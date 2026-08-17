@@ -1,9 +1,9 @@
 import "package:easy_localization/easy_localization.dart";
 import "package:flutter/material.dart";
 import "package:flutter_common_classes/flutter_common_classes.dart";
+import "package:fod_auth_flutter/features/password/presentation/widgets/form_builder_password_field.dart";
 
 import "../../../../../core/constants/theme/app_values.dart";
-import "form_builder_password_field.dart";
 
 /// An input containing the validations toggles for a new password that is
 /// going to be assign to a user's account.

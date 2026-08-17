@@ -20,47 +20,66 @@ class _PasswordConfirmationSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
+        mainAxisSize: MainAxisSize.max,
         children: [
-          Icon(
-            Platform.isAndroid
-                ? FontAwesomeIcons.fingerprint
-                : FontAwesomeIcons.faceViewfinder,
-            size: context.textTheme.headlineMedium?.fontSize,
+          BlockQuote(
+            blockType: CardType.warning,
+            message: "biometricWarningText".tr(),
           ),
-          const Spacer(),
-          Row(
-            children: [
-              FilledButton(
-                style: FilledButton.styleFrom(
-                  minimumSize: const Size.fromHeight(50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-                onPressed: onCancel,
-                child: Text(
-                  "cancel".tr().toCapitalized(),
-                  style: context.textTheme.titleMedium?.copyWith(
-                    color: context.colorScheme.onPrimary,
-                  ),
-                ),
+          Expanded(
+            child: Center(
+              child: Icon(
+                Platform.isAndroid
+                    ? FontAwesomeIcons.fingerprint
+                    : FontAwesomeIcons.faceViewfinder,
+                size: 64,
+                color: context.colorScheme.secondary,
               ),
-              FilledButton(
-                style: FilledButton.styleFrom(
-                  minimumSize: const Size.fromHeight(50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+          SafeArea(
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50),
+                      backgroundColor: context.colorScheme.outline,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    onPressed: onCancel,
+                    child: Text(
+                      "cancel".tr().toCapitalized(),
+                      style: context.textTheme.titleMedium?.copyWith(
+                        color: context.colorScheme.onPrimary,
+                      ),
+                    ),
                   ),
                 ),
-                onPressed: onConfirm,
-                child: Text(
-                  "confirm".tr().toCapitalized(),
-                  style: context.textTheme.titleMedium?.copyWith(
-                    color: context.colorScheme.onPrimary,
+                AppSeparators.kHSeparatorSmall,
+                Expanded(
+                  flex: 1,
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    onPressed: onConfirm,
+                    child: Text(
+                      "confirm".tr().toCapitalized(),
+                      style: context.textTheme.titleMedium?.copyWith(
+                        color: context.colorScheme.onPrimary,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       );

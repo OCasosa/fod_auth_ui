@@ -1,4 +1,5 @@
 import "dart:async";
+import "dart:developer";
 import "dart:io";
 
 import "package:auto_route/auto_route.dart";
@@ -12,6 +13,7 @@ import "package:form_builder_z/models/input_entity.dart";
 import "package:get_it/get_it.dart";
 
 import "../../../../../core/constants/theme/app_separators.dart";
+import "../../../../shared/presentation/widgets/block_quote.dart";
 import "../../forms/register_biometrics_form.dart";
 
 part "password_confirmation_section.dart";
@@ -49,15 +51,17 @@ class BiometricsRegisterBottomsheet extends StatelessWidget {
                 onSubmit: (form) => _onFormSubmit(context, form),
               ),
             ] else ...[
-              _PasswordConfirmationSection(
-                onCancel: () => context.router.maybePop(false),
-                onConfirm: () => _onFormSubmit(
-                  context,
-                  RegisterBiometricsFormEntity(
-                    password: InputEntity.dirty(
-                      field: "password",
-                      validators: const [],
-                      value: password,
+              Expanded(
+                child: _PasswordConfirmationSection(
+                  onCancel: () => context.router.maybePop(false),
+                  onConfirm: () => _onFormSubmit(
+                    context,
+                    RegisterBiometricsFormEntity(
+                      password: InputEntity.dirty(
+                        field: "password",
+                        validators: const [],
+                        value: password,
+                      ),
                     ),
                   ),
                 ),
@@ -74,6 +78,7 @@ class BiometricsRegisterBottomsheet extends StatelessWidget {
     final success = await BiometricsController.registerBiometrics(
       context: context,
       form: form,
+      checkPasswordWithServer: password == null,
     );
 
     if (!context.mounted) return;
@@ -116,10 +121,16 @@ Future<bool> showBiometricsOverlay({
     );
 
     password = passwordResponse.fold(
-      (l) => null,
+      (l) {
+        log("Error: $l");
+
+        return null;
+      },
       (r) => r.password,
     );
   }
+
+  log("Password: $password");
 
   if (!action) {
     final confirmation = await showWarningDialog(

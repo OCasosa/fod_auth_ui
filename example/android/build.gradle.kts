@@ -2,6 +2,16 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { 
+            url = uri("https://jitpack.io")
+            }
+        maven {
+            url = uri("https://maven.pkg.github.com/Incode-Technologies-Example-Repos/android-omni-packages")
+            credentials {
+              username = System.getenv("GITHUB_USERNAME")
+              password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 }
 

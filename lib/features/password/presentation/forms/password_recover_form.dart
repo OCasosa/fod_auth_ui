@@ -9,7 +9,6 @@ import "package:fod_auth_flutter/features/shared/shared.dart";
 import "../../../../core/constants/theme/app_separators.dart";
 import "../../../communication/widgets/bottomsheets/communication_channel_bottom_sheet_form_field.dart";
 import "../../../otp/presentation/widgets/overlays/otp_dialog_input.dart";
-import "../widgets/text_fields/form_builder_password_field.dart";
 import "../widgets/text_fields/new_password_small_input.dart";
 
 /// Form to recover the current user account password.

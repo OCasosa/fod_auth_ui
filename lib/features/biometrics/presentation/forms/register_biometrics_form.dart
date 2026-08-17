@@ -4,9 +4,9 @@ import "package:flutter/material.dart";
 import "package:flutter_common_classes/flutter_common_classes.dart";
 import "package:flutter_form_builder/flutter_form_builder.dart";
 import "package:fod_auth_flutter/features/biometrics/business/forms/register_biometrics_form_entity.dart";
+import "package:fod_auth_flutter/features/password/presentation/widgets/form_builder_password_field.dart";
 
 import "../../../../core/constants/theme/app_separators.dart";
-import "../../../password/presentation/widgets/text_fields/form_builder_password_field.dart";
 import "../../../shared/presentation/widgets/label_text.dart";
 
 /// Form to activate the biometric authentication
