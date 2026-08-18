@@ -24,6 +24,7 @@
   "pageHomeLoadFailed": "Error al cargar la pantalla de inicio",
   "passwordChangeFillFormText": "llena el siguiente formulario para cambiar tu contraseña",
   "passwordConfirm": "confirmar contraseña",
+  "passwordCurrent": "contraseña actual",
   "passwordEnter": "Ingresa tu contraseña",
   "passwordForgot": "olvidé mi contraseña",
   "passwordNew": "nueva contraseña",

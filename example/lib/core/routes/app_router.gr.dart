@@ -9,38 +9,40 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:flutter/material.dart' as _i12;
+import 'package:auto_route/auto_route.dart' as _i12;
+import 'package:flutter/material.dart' as _i13;
 import 'package:one_wallet_business/features/account/presentation/libraries/account_info_library.dart'
     as _i2;
 import 'package:one_wallet_business/features/account/presentation/libraries/account_menu_library.dart'
     as _i3;
+import 'package:one_wallet_business/features/account/presentation/libraries/password_change_library.dart'
+    as _i4;
 import 'package:one_wallet_business/features/account/presentation/pages/bridges/account_bridge_page.dart'
     as _i1;
 import 'package:one_wallet_business/features/account/presentation/pages/une_page.dart'
-    as _i10;
+    as _i11;
 import 'package:one_wallet_business/features/navigation/presentation/pages/tab_navigation_page.dart'
-    as _i9;
+    as _i10;
 import 'package:one_wallet_business/features/preferences/presentation/pages/select_languaje_page.dart'
-    as _i6;
-import 'package:one_wallet_business/features/preferences/presentation/pages/select_theme_page.dart'
     as _i7;
-import 'package:one_wallet_business/features/shared/presentation/libraries/pdf_viewer_library.dart'
-    as _i4;
-import 'package:one_wallet_business/features/shared/presentation/libraries/security_information_library.dart'
-    as _i5;
-import 'package:one_wallet_business/features/splash/presentation/pages/splash_page.dart'
+import 'package:one_wallet_business/features/preferences/presentation/pages/select_theme_page.dart'
     as _i8;
+import 'package:one_wallet_business/features/shared/presentation/libraries/pdf_viewer_library.dart'
+    as _i5;
+import 'package:one_wallet_business/features/shared/presentation/libraries/security_information_library.dart'
+    as _i6;
+import 'package:one_wallet_business/features/splash/presentation/pages/splash_page.dart'
+    as _i9;
 
 /// generated route for
 /// [_i1.AccountBridgePage]
-class AccountBridgeRoute extends _i11.PageRouteInfo<void> {
-  const AccountBridgeRoute({List<_i11.PageRouteInfo>? children})
+class AccountBridgeRoute extends _i12.PageRouteInfo<void> {
+  const AccountBridgeRoute({List<_i12.PageRouteInfo>? children})
       : super(AccountBridgeRoute.name, initialChildren: children);
 
   static const String name = 'AccountBridgeRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i1.AccountBridgePage();
@@ -50,13 +52,13 @@ class AccountBridgeRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.AccountInfoPage]
-class AccountInfoRoute extends _i11.PageRouteInfo<void> {
-  const AccountInfoRoute({List<_i11.PageRouteInfo>? children})
+class AccountInfoRoute extends _i12.PageRouteInfo<void> {
+  const AccountInfoRoute({List<_i12.PageRouteInfo>? children})
       : super(AccountInfoRoute.name, initialChildren: children);
 
   static const String name = 'AccountInfoRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i2.AccountInfoPage();
@@ -66,13 +68,13 @@ class AccountInfoRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.AccountMenuPage]
-class AccountMenuRoute extends _i11.PageRouteInfo<void> {
-  const AccountMenuRoute({List<_i11.PageRouteInfo>? children})
+class AccountMenuRoute extends _i12.PageRouteInfo<void> {
+  const AccountMenuRoute({List<_i12.PageRouteInfo>? children})
       : super(AccountMenuRoute.name, initialChildren: children);
 
   static const String name = 'AccountMenuRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i3.AccountMenuPage();
@@ -81,13 +83,85 @@ class AccountMenuRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.PdfViewerPage]
-class PdfViewerRoute extends _i11.PageRouteInfo<PdfViewerRouteArgs> {
+/// [_i4.PasswordChangePage]
+class PasswordChangeRoute extends _i12.PageRouteInfo<PasswordChangeRouteArgs> {
+  PasswordChangeRoute({
+    required String username,
+    String? title,
+    String? subtitle,
+    _i13.Key? key,
+    List<_i12.PageRouteInfo>? children,
+  }) : super(
+          PasswordChangeRoute.name,
+          args: PasswordChangeRouteArgs(
+            username: username,
+            title: title,
+            subtitle: subtitle,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'PasswordChangeRoute';
+
+  static _i12.PageInfo page = _i12.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<PasswordChangeRouteArgs>();
+      return _i4.PasswordChangePage(
+        username: args.username,
+        title: args.title,
+        subtitle: args.subtitle,
+        key: args.key,
+      );
+    },
+  );
+}
+
+class PasswordChangeRouteArgs {
+  const PasswordChangeRouteArgs({
+    required this.username,
+    this.title,
+    this.subtitle,
+    this.key,
+  });
+
+  final String username;
+
+  final String? title;
+
+  final String? subtitle;
+
+  final _i13.Key? key;
+
+  @override
+  String toString() {
+    return 'PasswordChangeRouteArgs{username: $username, title: $title, subtitle: $subtitle, key: $key}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! PasswordChangeRouteArgs) return false;
+    return username == other.username &&
+        title == other.title &&
+        subtitle == other.subtitle &&
+        key == other.key;
+  }
+
+  @override
+  int get hashCode =>
+      username.hashCode ^ title.hashCode ^ subtitle.hashCode ^ key.hashCode;
+}
+
+/// generated route for
+/// [_i5.PdfViewerPage]
+class PdfViewerRoute extends _i12.PageRouteInfo<PdfViewerRouteArgs> {
   PdfViewerRoute({
     required String fileName,
     String? base64File,
-    _i12.Key? key,
-    List<_i11.PageRouteInfo>? children,
+    _i13.Key? key,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           PdfViewerRoute.name,
           args: PdfViewerRouteArgs(
@@ -100,11 +174,11 @@ class PdfViewerRoute extends _i11.PageRouteInfo<PdfViewerRouteArgs> {
 
   static const String name = 'PdfViewerRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<PdfViewerRouteArgs>();
-      return _i4.PdfViewerPage(
+      return _i5.PdfViewerPage(
         fileName: args.fileName,
         base64File: args.base64File,
         key: args.key,
@@ -120,7 +194,7 @@ class PdfViewerRouteArgs {
 
   final String? base64File;
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
   @override
   String toString() {
@@ -141,97 +215,97 @@ class PdfViewerRouteArgs {
 }
 
 /// generated route for
-/// [_i5.SecurityInformationPage]
-class SecurityInformationRoute extends _i11.PageRouteInfo<void> {
-  const SecurityInformationRoute({List<_i11.PageRouteInfo>? children})
+/// [_i6.SecurityInformationPage]
+class SecurityInformationRoute extends _i12.PageRouteInfo<void> {
+  const SecurityInformationRoute({List<_i12.PageRouteInfo>? children})
       : super(SecurityInformationRoute.name, initialChildren: children);
 
   static const String name = 'SecurityInformationRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      return const _i5.SecurityInformationPage();
+      return const _i6.SecurityInformationPage();
     },
   );
 }
 
 /// generated route for
-/// [_i6.SelectLanguajePage]
-class SelectLanguajeRoute extends _i11.PageRouteInfo<void> {
-  const SelectLanguajeRoute({List<_i11.PageRouteInfo>? children})
+/// [_i7.SelectLanguajePage]
+class SelectLanguajeRoute extends _i12.PageRouteInfo<void> {
+  const SelectLanguajeRoute({List<_i12.PageRouteInfo>? children})
       : super(SelectLanguajeRoute.name, initialChildren: children);
 
   static const String name = 'SelectLanguajeRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      return const _i6.SelectLanguajePage();
+      return const _i7.SelectLanguajePage();
     },
   );
 }
 
 /// generated route for
-/// [_i7.SelectThemePage]
-class SelectThemeRoute extends _i11.PageRouteInfo<void> {
-  const SelectThemeRoute({List<_i11.PageRouteInfo>? children})
+/// [_i8.SelectThemePage]
+class SelectThemeRoute extends _i12.PageRouteInfo<void> {
+  const SelectThemeRoute({List<_i12.PageRouteInfo>? children})
       : super(SelectThemeRoute.name, initialChildren: children);
 
   static const String name = 'SelectThemeRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      return const _i7.SelectThemePage();
+      return const _i8.SelectThemePage();
     },
   );
 }
 
 /// generated route for
-/// [_i8.SplashPage]
-class SplashRoute extends _i11.PageRouteInfo<void> {
-  const SplashRoute({List<_i11.PageRouteInfo>? children})
+/// [_i9.SplashPage]
+class SplashRoute extends _i12.PageRouteInfo<void> {
+  const SplashRoute({List<_i12.PageRouteInfo>? children})
       : super(SplashRoute.name, initialChildren: children);
 
   static const String name = 'SplashRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      return const _i8.SplashPage();
+      return const _i9.SplashPage();
     },
   );
 }
 
 /// generated route for
-/// [_i9.TabNavigationPage]
-class TabNavigationRoute extends _i11.PageRouteInfo<void> {
-  const TabNavigationRoute({List<_i11.PageRouteInfo>? children})
+/// [_i10.TabNavigationPage]
+class TabNavigationRoute extends _i12.PageRouteInfo<void> {
+  const TabNavigationRoute({List<_i12.PageRouteInfo>? children})
       : super(TabNavigationRoute.name, initialChildren: children);
 
   static const String name = 'TabNavigationRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      return const _i9.TabNavigationPage();
+      return const _i10.TabNavigationPage();
     },
   );
 }
 
 /// generated route for
-/// [_i10.UnePage]
-class UneRoute extends _i11.PageRouteInfo<void> {
-  const UneRoute({List<_i11.PageRouteInfo>? children})
+/// [_i11.UnePage]
+class UneRoute extends _i12.PageRouteInfo<void> {
+  const UneRoute({List<_i12.PageRouteInfo>? children})
       : super(UneRoute.name, initialChildren: children);
 
   static const String name = 'UneRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      return const _i10.UnePage();
+      return const _i11.UnePage();
     },
   );
 }

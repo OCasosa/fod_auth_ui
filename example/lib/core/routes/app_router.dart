@@ -23,6 +23,10 @@ class AppRouter extends RootStackRouter {
           path: RoutesNames.une,
           page: UneRoute.page,
         ),
+        AutoRoute(
+          path: RoutesNames.passwordChange,
+          page: PasswordChangeRoute.page,
+        ),
       ];
 
   static final List<AutoRoute> _initialRoutes = [

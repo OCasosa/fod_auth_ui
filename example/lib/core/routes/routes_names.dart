@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
+import '../../features/account/presentation/libraries/password_change_library.dart';
+
 /// Contains all the routes of the application.
 class RoutesNames {
   /// Contains all the routes of the application.
@@ -27,4 +29,6 @@ class RoutesNames {
   static const statementList = "transaction/list";
 
   static const pdfView = "/pdf";
+
+  static const passwordChange = "/password/change";
 }

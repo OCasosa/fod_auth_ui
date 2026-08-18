@@ -46,6 +46,7 @@ class FodAuthUiLoader extends AssetLoader {
     "passwordChangeFillFormText":
         "fill out the following form to change your password",
     "passwordConfirm": "confirm password",
+    "passwordCurrent": "current password",
     "passwordEnter": "Enter your password",
     "passwordForgot": "forgot my password",
     "passwordNew": "new password",
@@ -105,6 +106,7 @@ class FodAuthUiLoader extends AssetLoader {
     "passwordChangeFillFormText":
         "llena el siguiente formulario para cambiar tu contraseña",
     "passwordConfirm": "confirmar contraseña",
+    "passwordCurrent": "contraseña actual",
     "passwordEnter": "Ingresa tu contraseña",
     "passwordForgot": "olvidé mi contraseña",
     "passwordNew": "nueva contraseña",

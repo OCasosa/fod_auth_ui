@@ -95,12 +95,8 @@ class _AccountMenuContent extends StatelessWidget {
               initialValue: _getBiometricValue,
               onChanged: (value) => _onBiometricSelected(context, value),
             ),
-            // _AccountListTile(
-            //   title: "passwordChange".tr().toCapitalized(),
-            //   iconData: FontAwesomeIcons.lock,
-            //   iconColor: Colors.pink,
-            //   onTap: () => context.router.push(const PasswordChangeRoute()),
-            // ),
+            const _PasswordChangeTile(),
+
             _AccountListTile(
               title: "securityInformation".tr().toCapitalized(),
               iconData: FontAwesomeIcons.shield,
@@ -149,5 +145,24 @@ class _AccountMenuContent extends StatelessWidget {
       showBiometricsOverlay(
         context: context,
         toggle: value,
+      );
+}
+
+class _PasswordChangeTile extends StatelessWidget {
+  const _PasswordChangeTile();
+
+  @override
+  Widget build(BuildContext context) =>
+      CubitWidgetStateBuilder<ProcurementDataLoadCubit, ProvisioningEntity>(
+        onSuccess: (data) => _AccountListTile(
+          title: "passwordChange".tr().toCapitalized(),
+          iconData: FontAwesomeIcons.lock,
+          iconColor: Colors.pink,
+          onTap: () => context.router.push(
+            PasswordChangeRoute(username: data.fullName),
+          ),
+        ),
+        onFailure: (_) => const SizedBox.shrink(),
+        onLoading: const SizedBox.shrink(),
       );
 }

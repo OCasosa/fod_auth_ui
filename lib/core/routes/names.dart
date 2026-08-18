@@ -8,6 +8,7 @@ class RoutesNames {
   static const userInput = "/auth/user";
   static const passwordInput = "/auth/password";
   static const passwordForgot = "/auth/forgot/password";
+  static const passwordChange = "/auth/change/password";
   static const biometricInput = "/auth/biometric";
   static const communicationVerification = "/auth/communication/verify";
   static const otpInput = "/auth/otp";
