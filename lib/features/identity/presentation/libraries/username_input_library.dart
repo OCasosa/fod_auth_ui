@@ -11,6 +11,7 @@ import "package:form_builder_validators/form_builder_validators.dart";
 
 import "../../../../core/constants/theme/app_separators.dart";
 import "../../../../core/routes/fod_auth_ui_router.gr.dart";
+import "../../../shared/presentation/widgets/app_version_text.dart";
 import "../../../shared/presentation/widgets/form_section.dart";
 import "../../../shared/presentation/widgets/sign_in_background.dart";
 

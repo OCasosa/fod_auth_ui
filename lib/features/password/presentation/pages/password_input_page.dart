@@ -68,6 +68,7 @@ class _PasswordLoginContent extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: FormSection(
+              label: const AppVersionText(),
               content: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,

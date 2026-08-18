@@ -120,6 +120,7 @@ class DependencyInjection {
         logoImage: Assets.images.logos.appLogo.path,
         loginBackgroundImage: Assets.images.backgrounds.bg1.path,
         homePage: const TabNavigationRoute(),
+        appVersion: GetIt.I.get<PackageInfo>().version,
       ),
     );
 

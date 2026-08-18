@@ -7,6 +7,7 @@ class BrandingPropsEntity {
     required this.logoImage,
     required this.loginBackgroundImage,
     required this.homePage,
+    this.appVersion,
   });
 
   /// Path to the brand logo image
@@ -17,4 +18,7 @@ class BrandingPropsEntity {
 
   /// Page route info of the home page
   final PageRouteInfo homePage;
+
+  /// Version of the app
+  final String? appVersion;
 }

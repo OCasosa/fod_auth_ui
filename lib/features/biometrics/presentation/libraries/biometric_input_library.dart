@@ -11,13 +11,12 @@ import "package:fod_auth_flutter/features/auth/business/entities/auth_password_p
 import "package:fod_auth_flutter/features/auth/data/models/params/login_params.dart";
 import "package:fod_auth_flutter/features/auth/presentation/controllers/auth_controller.dart";
 import "package:fod_auth_flutter/features/auth/presentation/cubits/auth_info_state_cubit.dart";
-import "package:fod_auth_flutter/features/identity/presentation/controllers/identity_controller.dart";
 import "package:fod_auth_flutter/features/token/presentation/controllers/token_controller.dart";
 import "package:font_awesome_flutter/font_awesome_flutter.dart";
 
 import "../../../../core/constants/theme/app_separators.dart";
-import "../../../../core/routes/fod_auth_ui_router.gr.dart";
 import "../../../../fod_auth_ui.dart";
+import "../../../shared/presentation/widgets/app_version_text.dart";
 import "../../../shared/presentation/widgets/form_section.dart";
 import "../../../shared/presentation/widgets/sign_in_background.dart";
 

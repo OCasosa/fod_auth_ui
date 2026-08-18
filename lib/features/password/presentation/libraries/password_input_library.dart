@@ -12,6 +12,7 @@ import "package:font_awesome_flutter/font_awesome_flutter.dart";
 
 import "../../../../core/constants/theme/app_separators.dart";
 import "../../../../fod_auth_ui.dart";
+import "../../../shared/presentation/widgets/app_version_text.dart";
 import "../../../shared/presentation/widgets/form_section.dart";
 import "../../../shared/presentation/widgets/sign_in_background.dart";
 

@@ -117,6 +117,7 @@ class _BiometricLoginContentState extends State<_BiometricLoginContent> {
           Align(
             alignment: Alignment.bottomCenter,
             child: FormSection(
+              label: const AppVersionText(),
               content: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
