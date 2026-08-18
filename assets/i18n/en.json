@@ -24,6 +24,7 @@
   "pageHomeLoadFailed": "Failed to load home page",
   "passwordChangeFillFormText": "fill out the following form to change your password",
   "passwordConfirm": "confirm password",
+  "passwordCurrent": "current password",
   "passwordEnter": "Enter your password",
   "passwordForgot": "forgot my password",
   "passwordNew": "new password",
