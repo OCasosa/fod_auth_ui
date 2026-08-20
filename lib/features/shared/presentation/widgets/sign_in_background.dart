@@ -12,7 +12,7 @@ class SignInBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundImage = _retrieveBackground();
+    final backgroundProps = _retrieveBackgroundProps();
     final appLogo = _retrieveAppLogo();
 
     return Container(
@@ -25,10 +25,11 @@ class SignInBackground extends StatelessWidget {
         bottom: 40,
       ),
       decoration: BoxDecoration(
-        image: backgroundImage != null
+        image: backgroundProps.image != null
             ? DecorationImage(
-                image: AssetImage(backgroundImage),
-                fit: BoxFit.cover,
+                image: AssetImage(backgroundProps.image!),
+                alignment: backgroundProps.alignment,
+                fit: backgroundProps.fit,
               )
             : null,
       ),
@@ -44,11 +45,11 @@ class SignInBackground extends StatelessWidget {
     );
   }
 
-  String? _retrieveBackground() {
+  BackgroundPropsEntity _retrieveBackgroundProps() {
     try {
-      return GetIt.I.get<BrandingPropsEntity>().loginBackgroundImage;
+      return GetIt.I.get<BrandingPropsEntity>().background;
     } catch (e) {
-      return null;
+      return const BackgroundPropsEntity();
     }
   }
 

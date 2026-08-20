@@ -46,12 +46,16 @@ class $AssetsImagesBackgroundsGen {
   AssetGenImage get bg1 =>
       const AssetGenImage('assets/images/backgrounds/bg1.png');
 
+  /// File path: assets/images/backgrounds/planes.png
+  AssetGenImage get planes =>
+      const AssetGenImage('assets/images/backgrounds/planes.png');
+
   /// File path: assets/images/backgrounds/worldillustration.png
   AssetGenImage get worldillustration =>
       const AssetGenImage('assets/images/backgrounds/worldillustration.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [bg1, worldillustration];
+  List<AssetGenImage> get values => [bg1, planes, worldillustration];
 }
 
 class $AssetsImagesLogosGen {

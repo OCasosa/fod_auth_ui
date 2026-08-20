@@ -118,7 +118,11 @@ class DependencyInjection {
     await FODAuthUIDependencyInjection.injectPublicRepositories(
       brandingProps: BrandingPropsEntity(
         logoImage: Assets.images.logos.appLogo.path,
-        loginBackgroundImage: Assets.images.backgrounds.bg1.path,
+        background: BackgroundPropsEntity(
+          image: Assets.images.backgrounds.planes.path,
+          alignment: Alignment.topCenter,
+          fit: BoxFit.contain,
+        ),
         homePage: const TabNavigationRoute(),
         appVersion: GetIt.I.get<PackageInfo>().version,
       ),

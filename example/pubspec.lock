@@ -406,11 +406,11 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "0.1.49"
-      resolved-ref: "2e74dd68023e5686fa2959167a5cfcbece6c212e"
+      ref: "0.1.51"
+      resolved-ref: a6830879d05112a96f15243ab3d306d62d5d90c1
       url: "https://github.com/OCasosa/fintech_on_demand_onboarding_flutter.git"
     source: git
-    version: "0.1.49"
+    version: "0.1.51"
   fixnum:
     dependency: transitive
     description:
@@ -668,18 +668,18 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: "0.2.7"
-      resolved-ref: f8a9b306ffce4edf1339f35ebd51a3c7730e9839
+      ref: "0.2.9"
+      resolved-ref: "09cbf1d438121a3cc3a2c112aefed24854472448"
       url: "https://github.com/OCasosa/fod_auth_flutter.git"
     source: git
-    version: "0.2.7"
+    version: "0.2.9"
   fod_auth_ui:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.2.1"
+    version: "0.2.5"
   font_awesome_flutter:
     dependency: "direct main"
     description:
